@@ -8,7 +8,7 @@
              <div class="col-md-10">
                 <!-- <a href="jobs/{{job.id}}">{{ job.title }}</a>  -->
 
-                <button class="btn w-100" (click)="navigateToDetails($index)"><a>{{ job.title }}</a></button>
+                <button style="text-decoration-line: underline;color: blue;" class="btn btn-light w-100 text-left text-decoration-underline" (click)="navigateToDetails($index)"><a>{{ job.title }}</a></button>
            
                  <div class="row ml-0">                 
                       <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>

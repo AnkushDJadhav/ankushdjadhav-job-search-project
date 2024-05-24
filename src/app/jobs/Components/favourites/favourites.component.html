@@ -7,7 +7,7 @@
                 <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
                  </div>
                  <div class="col-md-11">
-                 <button class="btn w-100" (click)="navigateToDetails($index)"><a>{{ job.title }}</a></button> 
+                 <button style="text-decoration-line: underline;color: blue;" class="btn btn-light w-100 text-left text-decoration-underline" (click)="navigateToDetails($index)"><a>{{ job.title }}</a></button> 
                     <!-- <a href="jobs/{{job.id}}">{{ job.title }}</a>     -->
                      <div class="row ml-0">
                      
@@ -22,7 +22,7 @@
     @else{
         <div class="row">
             <div class="col-md-12">
-                <p class="mt-5 w-100 text-center">No Favourites Selected. Please Add and Check later.</p>
+                <h4 class="mt-5 w-100 text-center">No Favourites Selected</h4>
             </div>
         </div>
     }

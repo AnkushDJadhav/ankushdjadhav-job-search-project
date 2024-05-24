@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +9,8 @@ import { OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    this.changeColor();
-  }
+export class AppComponent  {
+  
   title = 'ng-job-search';
   changeColor()
   {   
