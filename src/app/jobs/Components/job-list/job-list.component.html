@@ -1,22 +1,23 @@
 <div class="container">
-    <h3 class="text-center">Find your job</h3>
-    @for (job of jobList; track $index) {
-       <div class="row bordered">
-        <div class="col-md-1">
-       <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
-        </div>
-        <div class="col-md-10">
-            <h5> {{ job.title }}</h5> 
-            <div class="row ml-0">
+    <div class="ml-4">
+        @for (job of jobList; track $index) {
+            <div class="row bordered">
+             <div class="col-md-1">
+            <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
+             </div>
+             <div class="col-md-10">
+                 <h5> {{ job.title }}</h5> 
+                 <div class="row ml-0">
+                 
+                      <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>
+                 
+                 </div>
+             </div>
+             <div class="col-md-1">
+                 <span class="icon-star mt-2" id="star-{{job.id}}"></span>
+             </div>
             
-                 <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>
-            
-            </div>
-        </div>
-        <div class="col-md-1">
-            <span class="icon-star mt-2" id="star-{{job.id}}"></span>
-        </div>
-       
-       </div>       
-        }
+            </div>       
+             }
+    </div>  
 </div>
