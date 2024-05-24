@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Job } from '../../Models/job';
 import { JobService } from '../../Services/job.service';
 import { OnInit  } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-list',
@@ -14,7 +15,7 @@ export class JobListComponent implements OnInit {
 jobList :Job[]=[];
 favouritesJobID :number[]=[];
 
-constructor(private jobService :JobService){
+constructor(private jobService :JobService, private router :Router){
 
 }
   
@@ -31,7 +32,14 @@ ngOnInit(): void {
  
   }
 
- 
+  navigateToDetails(id :number){
+    let currentJobSelect=this.jobList[id];
+    if(currentJobSelect)
+      {
+        this.router.navigate(['/jobs', currentJobSelect.id]);
+      }
+   
+  }
 
   AddOrRemoveFavourite(JobID :number){
   let currentJobSelect=this.jobList[JobID];
