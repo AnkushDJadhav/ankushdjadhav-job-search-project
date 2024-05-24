@@ -6,10 +6,11 @@
             <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
              </div>
              <div class="col-md-10">
-                <button class="btn" (click)="navigateToDetails($index)">{{ job.title }}</button>
-                <!-- <a href="jobs/{{job.id}}">{{ job.title }}</a>                 -->
-                 <div class="row ml-0">
-                 
+                <a href="/jobs/{{job.id}}">{{ job.title }}</a> 
+
+                <!-- <button class="btn w-100" (click)="navigateToDetails($index)"><a>{{ job.title }}</a></button> -->
+           
+                 <div class="row ml-0">                 
                       <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>
                  
                  </div>

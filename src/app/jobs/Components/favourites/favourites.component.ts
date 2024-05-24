@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Job } from '../../Models/job';
 import { JobService } from '../../Services/job.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-favourites',
@@ -15,7 +16,7 @@ export class FavouritesComponent implements OnInit {
   favouritesJobID :number[]=[];
   jobList :Job[]=[];
 
-  constructor(private jobService :JobService){}
+  constructor(private jobService :JobService, private router :Router){}
   
   ngOnInit(): void {
     let savedFavorites= localStorage.getItem("myFavorites");
@@ -40,6 +41,15 @@ export class FavouritesComponent implements OnInit {
     
     });
 
+  }
+
+  navigateToDetails(id :number){
+    let currentJobSelect=this.jobList[id];
+    if(currentJobSelect)
+      {
+        this.router.navigate(['/jobs', currentJobSelect.id]);
+      }
+   
   }
 
 }
