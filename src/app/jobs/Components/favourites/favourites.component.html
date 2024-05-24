@@ -1,20 +1,30 @@
 <div class="container">
-    <div class="ml-4">
-        @for (job of jobList; track $index) {
-            <div class="row bordered">
-             <div class="col-md-1">
-            <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
-             </div>
-             <div class="col-md-11">
-                 <h5> {{ job.title }}</h5> 
-                 <div class="row ml-0">
-                 
-                      <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>
-                 
+    @if(jobList.length){
+        <div class="ml-4">
+            @for (job of jobList; track $index) {
+                <div class="row bordered">
+                 <div class="col-md-1">
+                <img style="max-height: 50px !important;" src="{{job.companyLogo}}" alt="image"/>
                  </div>
-             </div>
-            </div>       
-             }
-    </div>  
+                 <div class="col-md-11">
+                     <h5> {{ job.title }}</h5> 
+                     <div class="row ml-0">
+                     
+                          <p>Company: {{job.companyName}} &nbsp; &nbsp; &nbsp;  Reference: {{job.reference}}</p>
+                     
+                     </div>
+                 </div>
+                </div>       
+                 }
+        </div>  
+    }
+    @else{
+        <div class="row">
+            <div class="col-md-12">
+                <p class="mt-5 w-100 text-center">No Favourites Selected. Please Add and Check later.</p>
+            </div>
+        </div>
+    }
+   
 </div>
 
