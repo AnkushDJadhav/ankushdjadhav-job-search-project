@@ -12,6 +12,8 @@ import { OnInit } from '@angular/core';
 })
 export class JobListComponent implements OnInit{
 jobList :Job[]=[];
+favoritesJobList :Job[]=[];
+favouritesJobID :number[]=[];
 
 constructor(private jobService :JobService){}
   
@@ -23,6 +25,17 @@ ngOnInit(): void {
  
   }
 
-
+  AddOrRemoveFavourite(JobID :number){
+  let currentJobSelect=this.jobList[JobID];
+  if(currentJobSelect)
+    {      
+      let element = document.getElementById("star-"+currentJobSelect.id);
+     
+      if(element)
+        {
+          element.classList.add('active');
+        }
+    }
+  }
 
 }
