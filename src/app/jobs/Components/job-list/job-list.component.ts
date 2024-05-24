@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Job } from '../../Models/job';
 import { JobService } from '../../Services/job.service';
-import { OnInit } from '@angular/core';
+import { OnInit  } from '@angular/core';
 
 @Component({
   selector: 'app-job-list',
@@ -10,18 +10,28 @@ import { OnInit } from '@angular/core';
   templateUrl: './job-list.component.html',
   styleUrl: './job-list.component.css'
 })
-export class JobListComponent implements OnInit{
+export class JobListComponent implements OnInit {
 jobList :Job[]=[];
 favouritesJobID :number[]=[];
 
-constructor(private jobService :JobService){}
+constructor(private jobService :JobService){
+
+}
+  
   
 ngOnInit(): void {
   this.jobService.getAllJobs().subscribe(responseData=>{
   this.jobList=responseData;
   });
  
+  let savedFavorites= localStorage.getItem("myFavorites");
+  if(savedFavorites){
+    this.favouritesJobID=JSON.parse(savedFavorites);  
   }
+ 
+  }
+
+ 
 
   AddOrRemoveFavourite(JobID :number){
   let currentJobSelect=this.jobList[JobID];
@@ -37,7 +47,7 @@ ngOnInit(): void {
    
       if(InFavArray < 0)
       {
-        //Not already in Favourites Array. Add the Job to Favourite   
+        //Not in Favourites Array. Add the Job to Favourite   
         this.favouritesJobID.push(currentJobSelect.id);
        if(element)
         {
@@ -53,8 +63,8 @@ ngOnInit(): void {
         }
       }   
       }
-   
-      console.log(this.favouritesJobID);
+        
+      localStorage.setItem("myFavorites",JSON.stringify(this.favouritesJobID));
      
     }
   }

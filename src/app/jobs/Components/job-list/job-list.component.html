@@ -14,10 +14,21 @@
                  </div>
              </div>
              <div class="col-md-1">
-                 <span class="icon-star mt-2" id="star-{{job.id}}" (click)="AddOrRemoveFavourite($index)" ></span>
+                
+                @if(favouritesJobID.indexOf(job.id)>-1){
+                    <span class="icon-star active mt-2" id="star-{{job.id}}" (click)="AddOrRemoveFavourite($index)" ></span>
+                }
+                @else
+                {
+                    <span class="icon-star mt-2" id="star-{{job.id}}" (click)="AddOrRemoveFavourite($index)" ></span>
+                }
              </div>
             
             </div>       
              }
     </div>  
 </div>
+
+   
+
+
