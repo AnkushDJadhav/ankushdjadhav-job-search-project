@@ -12,7 +12,6 @@ import { OnInit } from '@angular/core';
 })
 export class JobListComponent implements OnInit{
 jobList :Job[]=[];
-favoritesJobList :Job[]=[];
 favouritesJobID :number[]=[];
 
 constructor(private jobService :JobService){}
@@ -21,20 +20,42 @@ ngOnInit(): void {
   this.jobService.getAllJobs().subscribe(responseData=>{
   this.jobList=responseData;
   });
-
  
   }
 
   AddOrRemoveFavourite(JobID :number){
   let currentJobSelect=this.jobList[JobID];
+  let element = document.getElementById("star-"+currentJobSelect.id);
+
   if(currentJobSelect)
-    {      
-      let element = document.getElementById("star-"+currentJobSelect.id);
-     
-      if(element)
+    { 
+      if(this.favouritesJobID)
+      {    
+       let InFavArray= this.favouritesJobID.findIndex(
+        (number: number) => number === currentJobSelect.id
+       );
+   
+      if(InFavArray < 0)
+      {
+        //Not already in Favourites Array. Add the Job to Favourite   
+        this.favouritesJobID.push(currentJobSelect.id);
+       if(element)
         {
-          element.classList.add('active');
+          element.classList.add('active');        
         }
+      }
+      else{
+        //Already in Favourites Array. Remove the Job from Favourite List       
+        this.favouritesJobID.splice(InFavArray,1);
+       if(element)
+        {
+          element.classList.remove('active');        
+        }
+      }   
+      }
+   
+      console.log(this.favouritesJobID);
+     
     }
   }
 
