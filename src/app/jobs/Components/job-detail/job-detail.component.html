@@ -14,8 +14,8 @@
    <h1>{{jobDetail[0].companyName}} - {{jobDetail[0].title}}</h1>
    <div class="row">
     <div class="col-md-12">
-        <button type="button" style="border-radius: 20px;" class="btn btn-primary btn-sm">{{jobDetail[0].types}}</button>
-        <button type="button" style="border-radius: 20px;" class="btn btn-primary btn-sm">{{jobDetail[0].industries}}</button>
+        <button type="button" style="border-radius: 20px;" class="btn btn-primary btn-sm"><div [innerHTML]="jobDetail[0].types"></div> </button>
+        <button type="button" style="border-radius: 20px;" class="btn btn-primary btn-sm"><div [innerHTML]="jobDetail[0].industries"></div></button>
     </div>
    </div>
 
@@ -27,8 +27,7 @@
             <p><b>Publish Date :</b> {{jobDetail[0].publishDate | date:"M/dd/yy"}}</p>
             <p><b>Location :</b> {{jobDetail[0].location}}</p>
             <p><b>Reference :</b> {{jobDetail[0].reference}}</p>
-            <p><b>Description :</b> </p> 
-            <div>{{jobDetail[0].description}}</div>
+            <p><b>Description :</b> </p> <div [innerHTML]="jobDetail[0].description"></div>
         </div>
     </div>
   </div>
