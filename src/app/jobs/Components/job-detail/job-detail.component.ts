@@ -17,7 +17,7 @@ import { JobDetail } from '../../Models/job-detail';
 })
 export class JobDetailComponent implements OnInit{
   jobDetail :JobDetail[]=[];
-
+ 
   constructor(private jobService :JobService, private activatedRoute :ActivatedRoute, private router :Router){}
 
   ngOnInit(): void {
