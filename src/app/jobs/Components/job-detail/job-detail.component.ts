@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { JobService } from '../../Services/job.service';
 import { JobDetail } from '../../Models/job-detail';
@@ -18,7 +18,7 @@ import { JobDetail } from '../../Models/job-detail';
 export class JobDetailComponent implements OnInit{
   jobDetail :JobDetail[]=[];
 
-  constructor(private jobService :JobService, private activatedRoute :ActivatedRoute){}
+  constructor(private jobService :JobService, private activatedRoute :ActivatedRoute, private router :Router){}
 
   ngOnInit(): void {
    let jobIDValue = this.activatedRoute.snapshot.paramMap.get('id');
@@ -32,6 +32,10 @@ export class JobDetailComponent implements OnInit{
   }
   
  
+  }
+
+  backToHomePage(){
+  this.router.navigate(['/jobs']);
   }
 
   
