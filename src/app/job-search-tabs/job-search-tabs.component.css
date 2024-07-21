@@ -1,0 +1,28 @@
+.container{
+  width: 700px;
+  background-color: #a0b2d3;
+  padding: 20px;
+}
+
+.tab-button{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 350px;
+  }
+  
+button.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+    background-color: #2F3C7E;
+}
+
+.container-list{
+  justify-content: start;
+  margin-bottom: 1rem;
+}

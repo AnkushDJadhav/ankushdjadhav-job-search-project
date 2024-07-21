@@ -1,0 +1,15 @@
+<div *ngIf="favoriteJobs.length === 0" class="alert-info">
+    No favorite jobs selected.
+  </div>
+  <div class="job-card" *ngFor="let job of favoriteJobs">
+    <div class="card-container">
+        <div class="card-img">
+          <img src="{{ job.companyLogo }}"  alt="{{ job.companyName }}">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ job.title }}</h5>
+          <span class="card-text">Company:</span><span class="card-text">{{ job.companyName }}</span>
+          <span class="card-text">Reference:</span><span class="card-text">{{ job.reference }}</span>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<button class="back-btn" (click)="goBack()">Back</button>
+<div *ngIf="job">
+    <div  class="card-container mb-20">
+        <div class="card-img">
+            <img src="{{ job.companyLogo }}"  alt="{{ job.companyLogo }}">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mb-5">{{job.companyName}}-{{ job.title }}</h5>
+            <span class="card-text pills">{{ job.types }}</span>
+            <span class="card-text pills">{{ job.industries }}</span>
+          </div>
+    </div>
+    <div>
+        <span class="pr-5 sub-header">Publish date:</span><span class="card-text">{{job.publishDate |  date: 'MM/dd/yyyy'}}</span>
+    </div>
+    <div>
+        <span class="pr-5 sub-header">Location:</span><span class="card-text">{{job.location}}</span>
+    </div>
+    <div>
+        <span class="pr-5 sub-header">Reference:</span><span class="card-text">{{job.reference}}</span>
+    </div>
+    <div>
+        <span class="pr-5 sub-header">Description:</span>
+        <div class="card-text" [innerHTML]="job.description"></div>
+    </div>
+     
+</div>
+

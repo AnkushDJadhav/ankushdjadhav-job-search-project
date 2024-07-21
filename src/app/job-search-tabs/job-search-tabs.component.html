@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="tab-button">
+        <button [class.active]="activeTabVal === 'jobListTab'" (click)="activeTab('jobListTab')">Jobs</button>
+        <button [class.active]="activeTabVal === 'favoriteJobListTab'" (click)="activeTab('favoriteJobListTab')">Favorites</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>
